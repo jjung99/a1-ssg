@@ -6,15 +6,15 @@
 
 ### features
 
-- command flags
-
-  - -v or -version : show its current version
-  - -h or -help : show instruction
-  - -i or -input: allow file or folder as input
-  - -l or -lang : allow to change lang for html
-
-- create html file from input (a text file or all the text file in the input folder)
-- create html file from input (a md file or all the md file in the input folder)
+  + command flags
+    + -v or -version : show its current version
+    + -h or -help : show instruction
+    + -i or -input: allow file or folder as input
+    + -l or -lang : allow to change lang for html
+    + -c or -config : allow to accept json file as a input.
+  
+  + create html file from input (a text file or all the text file in the input folder)
+  + create html file from input (a md file or all the md file in the input folder)
 
 ### Prerequisite
 
@@ -43,21 +43,29 @@ code URL: https://github.com/jjung99/a1-ssg.git
  node . -h
 ```
 
-- To generate html file (example commands)
 
-  - file name "abc.txt"
-    ```
-     node . -i 'abc.txt'
-    ```
-  - folder name "abc"
-    ```
-     node . -i abc
-    ```
-  - file name "abc.md"
-    ```
-     node . -i 'abc.md'
-    ```
-  - file name "abc.md" with franch lang version
-    ```
-      node . -i 'abc.md' -l fr
-    ```
++ To generate html file (example commands) 
+
+    + file name "abc.txt"
+      ```
+       node . -i 'abc.txt'
+      ```
+      
+    + folder name "abc"
+      ```
+       node . -i abc
+      ```    
+    + file name "abc.md"
+      ```
+       node . -i 'abc.md'
+      ```
+    + file name "abc.md" with franch lang version
+      ```
+        node . -i 'abc.md' -l fr
+      ```
+    + config file name "ssg-config.json"
+      ```
+        node . -c ssg-config.json
+      ```
+
+
