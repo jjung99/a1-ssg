@@ -18,7 +18,7 @@ ${contents}
 </html>
 `
 
-async function HTMLgenerator(argv, output){
+async function HTMLgenerator(argv){
     const { input, lang } = argv; // const input = argv.input; 
     
     let files = [];
@@ -61,6 +61,7 @@ async function HTMLgenerator(argv, output){
         }
         const fileNameExt = file.split('/')[file.split('/').length - 1];
         const filename = fileNameExt.split('.')[0];
+        const output = argv.output ?? 'dist';
         if (!fs.existsSync(output)) {
             fs.mkdirSync(output);
         }

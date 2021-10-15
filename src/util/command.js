@@ -15,6 +15,12 @@ function getArgs() {
         type: 'string',
         required: false
     })
+    .option('o', {
+        alias: 'output',
+        describe: 'output directory',
+        type: 'string',
+        required: false
+    })
     .option('c', {
         alias: 'config',
         describe: 'Provide filename to covert html',
