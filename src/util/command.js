@@ -17,7 +17,7 @@ function getArgs() {
     })
     .option('o', {
         alias: 'output',
-        describe: 'output directory',
+        describe: 'create the output directory',
         type: 'string',
         required: false
     })
@@ -30,7 +30,9 @@ function getArgs() {
     .alias('v', 'version')
     .version('v', '0.0.1')
     .alias('h', 'help')
-    .help('h', 'Display help');
+    .help('h', 
+        ''
+    );
 }
 
 module.exports = {
