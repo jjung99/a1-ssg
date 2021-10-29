@@ -11,17 +11,25 @@ const getHTML = (title, contents, lang, theme) => `<!doctype html>
     <meta charset="utf-8">
     <title>${title}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    .container {
+        width: 70%;
+        margin: 0 auto;
+    }
     ${theme && getThemeStyle(theme)}
+    </style>
 </head>
 <body>
+<div class="container">
 ${contents}
+</div>
 </body>
 </html>
 `
 
 function getThemeStyle(theme) {
     return theme === 'dark' 
-    ? `<style>body {background-color: 'black'; color: 'white';}</style>` : `<style>body {background-color: 'white'; color: 'black';}</style>`;
+    ? `body {background-color: black; color: white;}` : `body {background-color: white; color: black;}`;
 }
 
 async function HTMLgenerator(argv){
@@ -63,7 +71,13 @@ async function HTMLgenerator(argv){
             }).join(' ');
         }else if(fileType == 'txt'){
             let resArr = res.split('\n\n');
-            resArr.forEach(e => html += `<p>${e}</p>\n`);
+            resArr.forEach((e, i) => {
+                if(i === 0) {
+                    html += `<h1>${e}</h1>\n`;
+                } else {
+                    html += `<p>${e}</p>\n`;
+                }
+            });
         }
         const fileNameExt = file.split('/')[file.split('/').length - 1];
         const filename = fileNameExt.split('.')[0];
