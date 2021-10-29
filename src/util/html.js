@@ -5,12 +5,13 @@ function isKeyInObject(obj, key) {
     return res;
 }
 
-const getHTML = (title, contents, lang) => `<!doctype html>
+const getHTML = (title, contents, lang, theme) => `<!doctype html>
 <html lang="${lang}">
 <head>
     <meta charset="utf-8">
     <title>${title}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    ${theme && getThemeStyle(theme)}
 </head>
 <body>
 ${contents}
@@ -18,9 +19,14 @@ ${contents}
 </html>
 `
 
+function getThemeStyle(theme) {
+    return theme === 'dark' 
+    ? `<style>body {background-color: 'black'; color: 'white';}</style>` : `<style>body {background-color: 'white'; color: 'black';}</style>`;
+}
+
 async function HTMLgenerator(argv){
-    const { input, lang } = argv; // const input = argv.input; 
-    
+    const { input, lang, theme } = argv; 
+    //console.log("test:", argv);
     let files = [];
     if (fs.lstatSync(input).isDirectory()) {
         const filesFromDir = await fs.promises.readdir(input, 'utf-8');
@@ -65,7 +71,7 @@ async function HTMLgenerator(argv){
         if (!fs.existsSync(output)) {
             fs.mkdirSync(output);
         }
-        await fs.promises.writeFile(`${output}/${filename}.html`, getHTML(filename, html, lang));
+        await fs.promises.writeFile(`${output}/${filename}.html`, getHTML(filename, html, lang, theme));
     }
 }
 

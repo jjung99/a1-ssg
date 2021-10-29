@@ -1,4 +1,5 @@
 {
     "input": "./test",
-    "output": "./web"
+    "output": "./web",
+    "theme": "dark"
   }

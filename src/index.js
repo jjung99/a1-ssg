@@ -9,7 +9,7 @@ async function main() {
     
     try {
         if(isKeyInObject(argv, 'config')){
-            let flags = {inputFlag : false, langFlag : false, outputFlag : false};
+            let flags = {inputFlag : false, langFlag : false, outputFlag : false, themeFlag : false};
             
             const file = argv['c'];
             try {
@@ -25,6 +25,10 @@ async function main() {
                     else if(index === 'output'){
                         argv[index] = obj[index];
                         flags['outputFlag'] = true;
+                    }
+                    else if(index === 'theme'){
+                        argv[index] = obj[index];
+                        flags['themeFlag'] = true;
                     }
                 }
             } catch (e) {

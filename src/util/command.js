@@ -21,6 +21,12 @@ function getArgs() {
         type: 'string',
         required: false
     })
+    .option('t', {
+        alias: 'theme',
+        describe: 'css theme',
+        type: 'string',
+        required: false
+    })
     .option('c', {
         alias: 'config',
         describe: 'Provide filename to covert html',
