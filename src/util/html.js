@@ -82,11 +82,11 @@ async function HTMLgenerator(argv) {
     }
     const fileNameExt = file.split('/')[file.split('/').length - 1];
     const filename = fileNameExt.split('.')[0];
-    const output = argv.output ?? 'dist'
+    const output = argv.output ?? 'dist';
     if (!fs.existsSync(output)) {
       fs.mkdirSync(output);
     }
-    await fs.promises.writeFile(
+    return await fs.promises.writeFile(
       `${output}/${filename}.html`,
       getHTML(filename, html, lang, theme)
     );
@@ -96,4 +96,5 @@ async function HTMLgenerator(argv) {
 module.exports = {
   isKeyInObject,
   HTMLgenerator,
+  getHTML,
 };
