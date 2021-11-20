@@ -35,6 +35,11 @@ describe('HTMLgenerator function test', () => {
     lang: 'en-us',
     theme: 'dark',
   };
+    const mockMDParam = {
+    input: 'README.md',
+    lang: 'en-us',
+    theme: 'dark',
+  };
   const mockDirParam = {
     input: 'test',
     lang: 'en-us',
@@ -47,6 +52,10 @@ describe('HTMLgenerator function test', () => {
   };
   it('should return promise resolve with correct data', () => {
     expect(html.HTMLgenerator(mockParam)).resolves.toEqual(undefined);
+  });
+
+   it('should return promise resolve with md file correct data', () => {
+    expect(html.HTMLgenerator(mockMDParam)).resolves.toEqual(undefined);
   });
 
   it('should return promise reject with incorrect data', () => {

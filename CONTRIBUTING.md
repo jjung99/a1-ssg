@@ -60,3 +60,15 @@ In settings.json
 }
 ```
 
+### How to run tester
+
+without  coverage
+```
+npm run test
+```
+
+with coverage
+```
+npm run test-coverage
+```
+
