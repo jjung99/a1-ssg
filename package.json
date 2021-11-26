@@ -1,7 +1,7 @@
 {
   "name": "a1-ssg",
   "version": "1.0.0",
-  "description": "OSD600 A1",
+  "description": "Static Site Generator - OSD600",
   "main": "src/index.js",
   "bin": {
     "a1-ssg": "src/index.js"
@@ -17,8 +17,13 @@
     "type": "git",
     "url": "git+https://github.com/jjung99/a1-ssg.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "node",
+    "ssg",
+    "javascript",
+    "npm"
+  ],
+  "author": "Jiyun Jung",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jjung99/a1-ssg/issues"
